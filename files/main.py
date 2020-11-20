@@ -6,3 +6,4 @@ import telebot
 access_token = ''
 bot = telebot.TeleBot(access_token)
 
+#работа с бд 
