@@ -51,7 +51,7 @@ class User:
         request = f"SELECT current_order_id FROM user WHERE id=?"
         result = cursor.execute(request, (user_id,)).fetchone()
         return result[0]
-        
+
 
     # Меняем id текущего 
     def set_current_order_id(self, user_id, value):
@@ -59,3 +59,4 @@ class User:
         request = f"UPDATE user SET current_order_id=? WHERE id=?"
         cursor.execute(request, (value, user_id))
         self.connect.commit()
+        
