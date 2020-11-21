@@ -15,13 +15,14 @@ def message_parse(message):
     message = message.split(' ')
     message[0].upper()
     if message[0] in daynames:       # в этом операторе надо реализовать поиск даты
-        parse_schedule_for_day(message[0],message[1], message[2])
+        answer = parse_schedule_for_day(message[0],message[1], message[2])
+        
     elif message[0] == 'tomorrow':
         tmrw_day = datetime.date.today().weekday() + 1
         if tmrw_day == 7:
             tmrw_day = 0
         tmrw_day = daynames[tmrw_day]
-        parse_schedule_for_day(message[0],message[1], message[2])
+        answer = parse_schedule_for_day(message[0],message[1], message[2])
 
 
     elif message[0] == 'near':
