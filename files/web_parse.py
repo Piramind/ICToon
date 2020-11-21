@@ -6,7 +6,16 @@ import time
 
 
 
-
+def get_page(group, week=''):
+    if week:
+        week = str(week) + '/'
+    url = '{domain}/{group}/{week}raspisanie_zanyatiy_{group}.htm'.format(
+        domain='http://www.ifmo.ru/ru/schedule/0',
+        week=week,
+        group=group)
+    response = requests.get(url)
+    web_page = response.text
+    return web_page
 
 def parse_schedule_for_day(web_page, day_name):
     soup = BeautifulSoup(web_page, "html5lib")
