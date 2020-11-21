@@ -25,5 +25,5 @@ deadlines = [('Факультет', 'Факультет инфокоммуник
           ('Факультет', 'Факультет управления', '','код'),
           ('Факультет', 'Факультет ', '','код')]
  
-cursor.executemany("INSERT INTO deadlines VALUES (?,?,?,?,?)", deadlines)
+cursor.executemany("INSERT INTO deadlines VALUES (?,?,?,?)", deadlines)
 conn.commit()
