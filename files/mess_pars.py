@@ -64,5 +64,6 @@ def message_parse(message):
                                                     f'{locations_lst[0]}')
                     not_found = False
     else:
-        return 'ошибка ввода лох'
+        return None
+        
     return *args   # предлагаю заменить на вызов следующей функции с аргументами[date, odd, group], максимум с возвратом кода успеха
