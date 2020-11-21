@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup
 import datetime
 import time
 
+access_token = ''
+bot = telebot.TeleBot(access_token)
 
 daynames = []
 
