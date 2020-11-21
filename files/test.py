@@ -10,7 +10,9 @@ bot = telebot.TeleBot(access_token)
 DAY_NAMES = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 
 
-def get_page(group, week=''):
+
+
+def parse_schedule_for_day(web_page, day_name, group, week=''):
     if week:
         week = str(week) + '/'
     url = '{domain}/{group}/{week}raspisanie_zanyatiy_{group}.htm'.format(
@@ -19,10 +21,8 @@ def get_page(group, week=''):
         group=group)
     response = requests.get(url)
     web_page = response.text
-    return web_page
+    
 
-
-def parse_schedule_for_day(web_page, day_name):
     soup = BeautifulSoup(web_page, "html5lib")
     schedule_table = soup.find("table", attrs={"id": f"{DAY_NAMES.index(day_name) + 1}day"})
     if schedule_table is None:
