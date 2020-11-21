@@ -5,6 +5,8 @@ import datetime
 import time
 
 
+daynames = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+
 
 def get_page(group, week=''):
     if week:
@@ -19,9 +21,10 @@ def get_page(group, week=''):
 
 
 
-def parse_schedule_for_day(web_page, day_name):
+def parse_schedule_for_day(dayname, week, group):
+    web_page = get_page(group, week)
     soup = BeautifulSoup(web_page, "html5lib")
-    schedule_table = soup.find("table", attrs={"id": f"{DAY_NAMES.index(day_name) + 1}day"})
+    schedule_table = soup.find("table", attrs={"id": f"{daynames.index(dayname) + 1}day"})
     if schedule_table is None:
         return
 
