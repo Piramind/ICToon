@@ -63,8 +63,6 @@ def message_parse(message):
                                                     f'Lesson: {lessons_lst[0]} in '
                                                     f'{locations_lst[0]}')
                     not_found = False
-    elif message[0] == 'дата хз хз':
-        pass
     else:
         return 'ошибка ввода лох'
     return *args   # предлагаю заменить на вызов следующей функции с аргументами[date, odd, group], максимум с возвратом кода успеха
