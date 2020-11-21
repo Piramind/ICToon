@@ -20,10 +20,10 @@ cursor.execute("""INSERT INTO deadlines
 conn.commit()
  
 # Вставляем множество данных в таблицу используя безопасный метод "?"
-albums = [('Exodus', 'Andy Hunter', '7/9/2002', 'Sparrow Records', 'CD'),
-          ('Until We Have Faces', 'Red', '2/1/2011', 'Essential Records', 'CD'),
-          ('The End is Where We Begin', 'Thousand Foot Krutch', '4/17/2012', 'TFKmusic', 'CD'),
-          ('The Good Life', 'Trip Lee', '4/10/2012', 'Reach Records', 'CD')]
+deadlines = [('Факультет', 'Факультет инфокоммуникационных технологий', 'ФИКТ','код'),
+          ('Факультет', 'Факультет безопасности', '','код'),
+          ('Факультет', 'Факультет управления', '','код'),
+          ('Факультет', 'Факультет ', '','код')]
  
-cursor.executemany("INSERT INTO albums VALUES (?,?,?,?,?)", albums)
+cursor.executemany("INSERT INTO deadlines VALUES (?,?,?,?,?)", deadlines)
 conn.commit()
