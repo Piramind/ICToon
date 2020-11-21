@@ -8,7 +8,7 @@ from web_parse import parse_schedule_for_day
 access_token = ''
 bot = telebot.TeleBot(access_token)
 
-daynames = []
+daynames = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 
 @bot.message_handler(content_type=['text'])
 def message_parse(message):
