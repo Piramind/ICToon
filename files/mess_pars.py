@@ -23,4 +23,4 @@ def message_parse(message):
         pass
     else:
         return 'ошибка ввода лох'
-    return *args
+    

@@ -17,6 +17,8 @@ def get_page(group, week=''):
     web_page = response.text
     return web_page
 
+
+
 def parse_schedule_for_day(web_page, day_name):
     soup = BeautifulSoup(web_page, "html5lib")
     schedule_table = soup.find("table", attrs={"id": f"{DAY_NAMES.index(day_name) + 1}day"})
