@@ -16,13 +16,15 @@ def message_parse(message):
     message[0].upper()
     if message[0] in daynames:       # в этом операторе надо реализовать поиск даты
         answer = parse_schedule_for_day(message[0],message[1], message[2])
-        
+        bot.send_message(message.chat.id, answer, parse_mode='HTML')
+
     elif message[0] == 'tomorrow':
         tmrw_day = datetime.date.today().weekday() + 1
         if tmrw_day == 7:
             tmrw_day = 0
         tmrw_day = daynames[tmrw_day]
         answer = parse_schedule_for_day(message[0],message[1], message[2])
+        bot.send_message(message.chat.id, answer, parse_mode='HTML')
 
 
     elif message[0] == 'near':
@@ -66,5 +68,5 @@ def message_parse(message):
                     not_found = False
     else:
         return None
-        
+
     return *args   # предлагаю заменить на вызов следующей функции с аргументами[date, odd, group], максимум с возвратом кода успеха
