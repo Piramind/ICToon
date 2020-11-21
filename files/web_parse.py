@@ -6,20 +6,6 @@ import time
 
 
 
-username = ''
-password = ''
-
-url = 'https://isu.ifmo.ru/pls/apex/f?p=2143:LOGIN:111590327276412'
-sess = requests.Session()
-sess.verify = False
-
-resp = sess.post(url + '/login', data={'username': username, 'password': password})
-resp.raise_for_status()
-
-resp = sess.get(url + '/index.html')
-resp.raise_for_status()
-
-print(resp)
 
 
 def parse_schedule_for_day(web_page, day_name):
