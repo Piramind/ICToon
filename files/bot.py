@@ -4,15 +4,13 @@ from bs4 import BeautifulSoup
 import datetime
 import time
 
-access_token = ''
+access_token = '952672295:AAEc9u_MkDffvctq66zZq-VLHRNGKdFzq9M'
 bot = telebot.TeleBot(access_token)
 
 DAY_NAMES = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 
 
-
-
-def parse_schedule_for_day(web_page, day_name, group, week=''):
+def get_page(group, week=''):
     if week:
         week = str(week) + '/'
     url = '{domain}/{group}/{week}raspisanie_zanyatiy_{group}.htm'.format(
@@ -21,8 +19,10 @@ def parse_schedule_for_day(web_page, day_name, group, week=''):
         group=group)
     response = requests.get(url)
     web_page = response.text
-    
+    return web_page
 
+
+def parse_schedule_for_day(web_page, day_name):
     soup = BeautifulSoup(web_page, "html5lib")
     schedule_table = soup.find("table", attrs={"id": f"{DAY_NAMES.index(day_name) + 1}day"})
     if schedule_table is None:
