@@ -6,7 +6,7 @@ import time
 from web_parse import parse_schedule_for_day
 from web_parse import get_page
 
-access_token = '952672295:AAF4aqUSI5s0lPNkrDw1KkYvxm-cf3VpP38'
+access_token = ''
 bot = telebot.TeleBot(access_token)
 
 daynames = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
